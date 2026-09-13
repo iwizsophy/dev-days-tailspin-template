@@ -4,7 +4,7 @@
 元の `github-samples/tailspin-toys` へ変更を送り返す必要はありません。
 
 - 教材: https://github.com/iwizsophy/dev-days-jp
-- 配布版: `v2026.09.13`（対応する出典・修正・確認範囲は [WORKSHOP.md](WORKSHOP.md)）
+- 配布版: `v2026.09.13.1`（対応する出典・修正・確認範囲は [WORKSHOP.md](WORKSHOP.md)）
 - Node.js: **24.19.0**（`.nvmrc`。CI も同じ版を使用）
 - この非公開テンプレートにアクセスできる参加者が **Use this template → Create a new repository** から自分用コピーを作成します。
 - **Include all branches は Off**。コピー先の Actions で **Bootstrap template issues** を確認します。自動開始しない場合は同じワークフローを手動実行してください。
