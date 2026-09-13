@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "db/**/*.ts",
+    "src/lib/**/*.ts",
+    "src/types/**/*.ts",
+    "e2e-tests/**/*.ts",
+    "drizzle.config.ts",
+    "playwright.config.ts",
+    "vitest.config.ts"
+  ],
+  "exclude": ["node_modules", "dist", ".astro", "**/*.astro", "src/pages", "src/components", "src/layouts"]
+}

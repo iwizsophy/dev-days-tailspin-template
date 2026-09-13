@@ -1,0 +1,43 @@
+# This is the dependabot configuration file that automates dependency updates
+# Updates section configures how dependabot should handle dependency updates:
+# - Monitors NPM dependencies in the root directory
+# - Checks for updates weekly
+# - Applies a 7-day cooldown so newly published versions must age before being proposed
+# - Groups updates based on their type (dev grouped by minor/patch or prod grouped by patch)
+#
+# Learn more at https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    # Wait 7 days after a version is published before proposing it, so freshly
+    # released packages have time to be vetted (mirrors our package cooldown policy).
+    cooldown:
+      default-days: 7
+    groups:
+      npm-development:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+      npm-production:
+        dependency-type: production
+        update-types:
+          - patch
+    # Hold the classic `typescript` package on v6 until typescript-eslint (typed
+    # linting) and @astrojs/check support the native (tsgo) compiler API (~TS 7.1).
+    # TypeScript 7 is already adopted side-by-side via the @typescript/native-preview
+    # package (used by `npm run typecheck`); merging a classic typescript@7 bump now
+    # would break `npm run lint` and `astro check`.
+    ignore:
+      - dependency-name: "typescript"
+        versions: ["7.x"]
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: weekly
+    # Apply the same 7-day cooldown to devcontainer image/feature updates.
+    cooldown:
+      default-days: 7

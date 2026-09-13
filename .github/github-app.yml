@@ -1,0 +1,20 @@
+# GitHub Copilot app project configuration. These named commands appear in
+# the Run menu for every workspace created from this repository.
+scripts:
+  - name: Install dependencies
+    command: npm ci
+    triggers:
+      - session.create
+
+  - name: Run development site
+    command: npm run dev
+
+  - name: Build static site
+    command: npm run build
+
+  - name: Type-check application
+    command: npm run typecheck:all
+
+# Astro prints the local server URL after "Local:"; capture it for the browser canvas.
+server_ready_pattern: '(?i)Local:\s+(https?://\S+)'
+auto_open_in_browser: true
