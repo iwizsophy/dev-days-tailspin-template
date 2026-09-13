@@ -1,3 +1,20 @@
+# Dev Days 日本語教材用 Tailspin Toys テンプレート
+
+このリポジトリは `iwizsophy/dev-days-jp` の App 演習開始用コピーです。
+元の `github-samples/tailspin-toys` へ変更を送り返す必要はありません。
+
+- 教材: https://github.com/iwizsophy/dev-days-jp
+- 配布版: `v2026.09.13`（対応する出典・修正・確認範囲は [WORKSHOP.md](WORKSHOP.md)）
+- Node.js: **24.19.0**（`.nvmrc`。CI も同じ版を使用）
+- この非公開テンプレートにアクセスできる参加者が **Use this template → Create a new repository** から自分用コピーを作成します。
+- **Include all branches は Off**。コピー先の Actions で **Bootstrap template issues** を確認します。自動開始しない場合は同じワークフローを手動実行してください。
+- YAML・MCP の既知の設定修正は適用済みです。参加者によるパッチ適用は不要です。
+- 星評価のカード表示・カスタム指示の更新・フィルター・Canvas などの演習の実装結果は含めていません。
+
+以下は出典の README です。導入条件と教材の取得先は上記および WORKSHOP.md を優先してください。
+
+---
+
 # Tailspin Toys
 
 Tailspin Toys is a crowdfunding platform for games with a developer theme. The project is a website for a fictional game crowd-funding company, built as a single [Astro](https://astro.build/) site (fully prerendered/static output) styled with [Tailwind CSS](https://tailwindcss.com/). Its data lives in a local SQLite database accessed through [Drizzle ORM](https://orm.drizzle.team/) and Node.js's built-in SQLite driver; pages query the database directly in frontmatter at build time, so there is no separate backend service.

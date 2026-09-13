@@ -1,5 +1,5 @@
 {
-  "servers": {
+  "mcpServers": {
     "github": {
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/"
@@ -10,7 +10,7 @@
         "@playwright/mcp@latest"
       ]
     },
-     "astro-docs": {
+    "astro-docs": {
       "type": "http",
       "url": "https://mcp.docs.astro.build/mcp"
     }

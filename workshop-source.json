@@ -1,0 +1,9 @@
+{
+  "release": "v2026.09.13",
+  "upstream": "github-samples/tailspin-toys",
+  "upstream_commit": "bae003609c8cff0c51d92658b8d3bd89450464f1",
+  "material_repository": "iwizsophy/dev-days-jp",
+  "template_repository": "iwizsophy/dev-days-tailspin-template",
+  "node": "24.19.0",
+  "exercise_solutions_included": false
+}

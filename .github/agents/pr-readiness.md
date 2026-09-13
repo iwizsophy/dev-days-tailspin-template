@@ -9,7 +9,7 @@ tools:
     - web
     - agent
     - todo
-    - "playwright/\*"
+    - "playwright/*"
 ---
 
 # PR Readiness Agent
