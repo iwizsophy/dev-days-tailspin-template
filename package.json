@@ -6,9 +6,9 @@
     "node": ">=24.19.0 <25"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/serve.mjs dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "node scripts/serve.mjs preview",
     "astro": "astro",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx db/migrate.ts",
@@ -27,7 +27,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.10",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.1.6",
+    "astro": "^7.3.1",
     "drizzle-orm": "^0.45.2",
     "typescript": "^6.0.3"
   },
