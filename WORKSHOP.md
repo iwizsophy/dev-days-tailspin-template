@@ -1,4 +1,4 @@
-# 教材配布版 v2026.09.13
+# 教材配布版 v2026.09.13.1
 
 ## 出典
 
@@ -15,6 +15,8 @@
 2. `.mcp.json`: ルートキーを `servers` から `mcpServers` へ変更。既存の接続先を保持。
 3. `.nvmrc`: Node 24.19.0 を指定。package.json / lockfile の最低条件を合わせ、CI と Copilot Setup Steps もこのファイルを参照。
 4. 本 README・配布記録・機械可読の出典情報を追加。
+5. Astro（lockfile は 7.3.2）・開発依存・Vitest 4.1.11 と間接依存を更新。Playwright 1.63.0 と CI イメージを一致。
+6. dev / preview を Astro の公開 API で起動し、エージェント環境でも App Run と Playwright が同じプロセスの寿命を管理できるよう修正。Playwright の起動設定も更新。
 
 アプリのソース、ゲームデータ、既存テスト、課題 Issue の原稿は出典と同一です。
 演習で作成した完成コードや個人のローカルパスは含めません。
@@ -44,11 +46,11 @@ MCP の外部サービスと `@playwright/mcp@latest` は固定されていな�
 - Chromium E2E 21件が成功。テスト内の build・DB 初期化・preview も成功。
 - YAML の構文と MCP のルートキーを検査済み。
 - 出典アーカイブとのバイト比較で src/・db/・e2e-tests/・8件の課題原稿に変更がないことを確認。
-- **配布前の保留事項:** npm audit の詳細結果は40件（Critical 1、High 24、Moderate 14、Low 1）。
-  インストール時の要約は16件でしたが、ここでは詳細監査結果を記録しています。
-  Astro の AVIF 最適化に関する [GHSA-26w7-cxv4-gfx2](https://github.com/advisories/GHSA-26w7-cxv4-gfx2) などを含みます。
-  個別の到達可能性・影響範囲は未判定です。このタグを「脆弱性対応済み」と扱わず、
-  依存更新と再検証を行った版を参加者への本番配布前に用意してください。
+- エージェント環境でも npm run dev が Local URL を表示し、HTTP 200 を返すことと停止後のポート解放を確認。新しい起動コードでのネイティブ App Run / Stop の再操作は未実施。
+- npm audit は **Critical 0・High 0・Moderate 4・Low 0**。残る4件は drizzle-kit → @esbuild-kit/esm-loader → @esbuild-kit/core-utils → esbuild の同じ依存経路（GHSA-67mh-4wv8-2f99）です。
+  自動修正案は drizzle-kit 0.18.1 への互換性を壊すダウングレードなので適用していません。教材で通常使う migrate / seed は tsx 経由ですが、指摘の到達可能性を網羅的に評価したものではありません。
+  配布前にこの残件を確認してください。「監査指摘ゼロ」とは扱いません。
+- 旧タグ v2026.09.13 は当時の監査結果（Critical 1 を含む）とともに保持し、付け替えません。
 
 ## 更新する場合
 

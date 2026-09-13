@@ -54,7 +54,7 @@ export default defineConfig({
 
   /* Build the static site and serve it before starting the tests */
   webServer: {
-    command: 'npm run build && npm run preview -- --port 4321 --host',
+    command: 'npm run build && npm run preview -- --port 4321 --host 127.0.0.1',
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000, // 2 minutes to allow for build + seed

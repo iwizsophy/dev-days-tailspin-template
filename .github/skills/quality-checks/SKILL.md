@@ -39,7 +39,7 @@ npm run test:unit
 npm run test:e2e
 ```
 
-- Playwright's `webServer` first **builds** the static site (the `prebuild` script runs `db:migrate` + `db:seed`) and serves it with `astro preview` on port 4321.
+- Playwright's `webServer` first **builds** the static site (the `prebuild` script runs `db:migrate` + `db:seed`) and serves it with `npm run preview` on port 4321.
 - Runs all Playwright specs in `e2e-tests/` against the built `dist/` output (home page, game listing/detail pages, accessibility, 404).
 
 ### Lint
@@ -74,7 +74,7 @@ npm ci
 npx playwright install --with-deps chromium   # only needed for E2E
 ```
 
-- Ensure Node 22.13+ is available: `node --version`.
+- Ensure Node 24.19.0 (the version in `.nvmrc`) is available: `node --version`.
 - Run `npx astro sync` if editor/type errors reference missing generated Astro types.
 
 ---
@@ -155,7 +155,7 @@ npx vitest run src/lib/games.test.ts
 
 **Symptom**: Tests pass locally but fail in CI (or vice versa).
 
-- **Node version mismatch**: CI uses the current Node LTS release.
+- **Node version mismatch**: CI uses the exact Node version in `.nvmrc` (24.19.0).
 - **Database state**: CI always builds from a clean seed. Locally, delete `tailspin.db` and rebuild if you suspect stale data.
 - **Built vs dev**: CI tests the built `dist/` via `astro preview`. Reproduce locally with `npm run test:e2e` (which builds first) rather than against `astro dev`.
 
