@@ -93,6 +93,37 @@ npm run test:e2e:install
 
 ---
 
+## main の依存関係更新（2026年10月2日）
+
+2026年9月13日の配布版に対して、main では Astro のパッチ更新と、公開済みの脆弱性に対する以下の修正を適用しました。依存関係の変更は `package.json` とロックファイルに限定し、演習開始時のアプリケーション、ゲームデータ、テスト、課題原稿を維持しています。
+
+| パッケージ | 更新前 | 更新後 | ライセンス |
+| :--- | :--- | :--- | :--- |
+| Astro | 7.3.2 | 7.3.3 | MIT |
+| brace-expansion | 5.0.9 | 5.0.12 | MIT |
+| devalue | 5.8.1 | 5.9.4 | MIT |
+| fast-uri | 3.1.7 | 3.1.8 | BSD-3-Clause |
+| `@esbuild-kit/core-utils` 配下の esbuild | 0.18.20 | 0.25.12 | MIT |
+
+Astro の更新には開発時の不具合修正が含まれます。詳しくは [Astro 7.3.3 のリリースノート](https://github.com/withastro/astro/releases/tag/astro%407.3.3)を参照してください。これに伴う内部依存の `find-proc` 0.2.0 と `verkit` 0.4.1 もロックファイルへ反映しています。いずれも MIT ライセンスです。
+
+Drizzle Kit 0.31.10 は維持し、`package.json` の `overrides` で `@esbuild-kit/core-utils` が使う esbuild だけを `^0.25.12` に指定しています。これは [GHSA-67mh-4wv8-2f99](https://github.com/evanw/esbuild/security/advisories/GHSA-67mh-4wv8-2f99) に該当する古い esbuild を、Drizzle Kit のダウングレードを避けて差し替えるためです。上流の依存更新でこの経路から古い esbuild が入らなくなったら override を削除し、クリーンインストール、監査、スキーマ生成を再確認してください。
+
+brace-expansion、devalue、fast-uri は既存の依存範囲内で修正版へ更新しています。Vitest は 4.1.11 を維持しています。
+
+Node.js 24.19.0 / Windows で以下を確認しました。
+
+| 検査項目 | 結果 |
+| :--- | :--- |
+| クリーンインストール (`npm ci`) | 成功 |
+| セキュリティ監査 (`npm audit`) | Critical 0 / High 0 / Moderate 0 / Low 0 / Info 0 |
+| Lint / 型検査 | エラー・警告なし |
+| 単体テスト | 27件すべて成功 |
+| 静的ビルド・E2E テスト | Chromium による21件すべて成功（DB初期化・ビルド含む） |
+| Drizzle Kit のスキーマ生成 | 成功。スキーマ差分なし |
+| esbuild の互換性 | 差し替え先で同期・非同期の TypeScript 変換とソースマップを確認 |
+| Playwright MCP による手動確認 | 一覧 → ゲーム詳細 → 一覧の遷移と表示を確認。コンソールエラー0件 |
+
 ## 🔄 今後の更新方針
 
 * 既存のタグ（`v2026.09.13.1` 等）の付け替えは行いません。
