@@ -1,17 +1,43 @@
 # Dev Days 日本語教材用 Tailspin Toys テンプレート
 
-このリポジトリは `iwizsophy/dev-days-jp` の App 演習開始用コピーです。
-元の `github-samples/tailspin-toys` へ変更を送り返す必要はありません。
+本リポジトリは、ハンズオン教材 [dev-days-jp](https://github.com/iwizsophy/dev-days-jp) の演習開始用テンプレートです。  
+※元の [github-samples/tailspin-toys](https://github.com/github-samples/tailspin-toys) へ Pull Request などの変更を送り返す必要はありません。
 
-- 教材: https://github.com/iwizsophy/dev-days-jp
-- 配布版: `v2026.09.13.1`（対応する出典・修正・確認範囲は [WORKSHOP.md](WORKSHOP.md)）
-- Node.js: **24.19.0**（`.nvmrc`。CI も同じ版を使用）
-- この非公開テンプレートにアクセスできる参加者が **Use this template → Create a new repository** から自分用コピーを作成します。
-- **Include all branches は Off**。コピー先の Actions で **Bootstrap template issues** を確認します。自動開始しない場合は同じワークフローを手動実行してください。
-- YAML・MCP の既知の設定修正は適用済みです。参加者によるパッチ適用は不要です。
-- 星評価のカード表示・カスタム指示の更新・フィルター・Canvas などの演習の実装結果は含めていません。
+---
 
-以下は出典の README です。導入条件と教材の取得先は上記および WORKSHOP.md を優先してください。
+### 📋 基本情報
+
+| 項目 | 内容 |
+| :--- | :--- |
+| **対応教材** | [iwizsophy/dev-days-jp](https://github.com/iwizsophy/dev-days-jp) |
+| **配布版バージョン** | `v2026.09.13.1`（修正履歴や検査状況は [WORKSHOP.md](WORKSHOP.md) を参照） |
+| **推奨 Node.js** | **24.19.0**（`.nvmrc` 指定。CI も同一バージョン） |
+| **日本語リファレンス** | 📖 **[演習課題・Copilot 指示書の日本語解説 (WORKSHOP_REFERENCE.ja.md)](WORKSHOP_REFERENCE.ja.md)** |
+
+---
+
+### 🚀 参加者向けスタート手順
+
+1. **テンプレートからリポジトリを作成**  
+   画面右上の **[Use this template]** → **[Create a new repository]** をクリックして、自分用のアカウント/環境にコピーを作成します。
+2. **作成時の注意点**  
+   **「Include all branches」は必ず Off（チェックなし）** にしてください。
+3. **演習課題（Issue）の確認**  
+   リポジトリ作成後、Actions で **Bootstrap template issues** が自動実行され、8件の演習用 Issue が作成されます。  
+   *(※数分待っても作成されない場合は、GitHub の [Actions] タブから手動で実行してください)*
+4. **課題や指示書の確認**  
+   英語で書かれた課題（Issue 01〜08）や Copilot 指示書の内容は、**[WORKSHOP_REFERENCE.ja.md](WORKSHOP_REFERENCE.ja.md)** で分かりやすく日本語解説しています。
+
+> [!NOTE]
+> * **設定適用済み**: YAML や MCP 等の既知の初期設定・修正はあらかじめ適用されています（参加者による事前パッチ適用は不要です）。
+> * **演習範囲**: 星評価の表示、カスタム指示の更新、フィルター機能、Canvas などの演習の完成コードは含まれていません（演習の中で実装します）。
+
+---
+
+> [!IMPORTANT]
+> これ以降は出典元（英語）の README です。  
+> 環境条件や教材の手順については、上記の日本語案内および [WORKSHOP.md](WORKSHOP.md) を優先してください。
+> 各課題や指示書の日本語解説は [WORKSHOP_REFERENCE.ja.md](WORKSHOP_REFERENCE.ja.md) を参照してください。
 
 ---
 
